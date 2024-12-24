@@ -1,4 +1,6 @@
+import { useState } from "react";
 import { z } from "zod";
+import { FoodCategories } from "../types/types";
 
 const foodCathegories = z.object({
   categories: z.array(
@@ -13,7 +15,21 @@ const foodCathegories = z.object({
 
 export type foodCathegories = z.infer<typeof foodCathegories>;
 
+const foodCathegoryInitialState: FoodCategories = {
+    categories: [
+      {
+        idCategory: '',
+        strCategory: '',
+        strCategoryThumb: '',
+        strCategoryDescription: '',
+      },
+    ],
+  };
+  
 export default function useFood() {
+  
+    const [foodCathegory, setFoodCathegory] = useState<FoodCategories>(foodCathegoryInitialState)
+    
   const URL = "https://www.themealdb.com/api/json/v1/1/categories.php";
 
   const fetchFood = async () => {
@@ -25,10 +41,13 @@ export default function useFood() {
       }
 
       const data = await response.json();
-
       const result = foodCathegories.safeParse(data);
+      
+      if (result.success) {
+        setFoodCathegory(result.data)
+      }
 
-      console.log(result);
+      
     } catch (error) {
       console.error(error);
       throw error;
@@ -36,6 +55,7 @@ export default function useFood() {
   };
 
   return {
+    foodCathegory,
     fetchFood,
   };
 }
