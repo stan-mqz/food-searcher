@@ -5,8 +5,8 @@ type FoodCardProps = {
 
 export const FoodCard = ({ cathegoryName, bgImage }: FoodCardProps) => {
   return (
-    <div className="space-y-2 justify-center align-center bg-slate-300 border-1 p-2">
-      <div className="bg-white border-1 p-2 cursor-pointer">
+    <div className="space-y-2 bg-emerald-50 border border-black border-1 p-2">
+      <div className="bg-white  border border-black border-1 p-2 cursor-pointer">
         <img src={`${bgImage}`} alt="Food BackGround Image" />
       </div>
 
