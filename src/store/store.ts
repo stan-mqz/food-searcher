@@ -9,6 +9,7 @@ type FoodState = {
   foodDescription : string;
   showModalInfo: (url: string, description: string) => void;
   hideModal : () => void;
+  clearState : () => void;
   addFoodCathegory: (data: FoodCategories) => void;
 };
 
@@ -25,6 +26,8 @@ export const useFoodStore = create<FoodState>()(
         foodCathegory: [data],
       }));
     },
+
+
     showModalInfo: (url, description) => {
       set(() => ({
         modal: true,
@@ -33,13 +36,18 @@ export const useFoodStore = create<FoodState>()(
       }));
     },
 
-    hideModal : () => {
+    hideModal : () => { 
       set(() => ({
         modal: false,
-        foodDescription : '',
-        imgUrl: ''
       }));
     },
+
+    clearState : () => {
+      set(() => ({
+        foodDescription : '',
+        imgUrl: '',
+      }));
+    }
 
   }))
 );
