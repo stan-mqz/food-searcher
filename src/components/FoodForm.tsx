@@ -18,6 +18,7 @@ export const FoodForm = () => {
 
     fetchSingleCathegory(searchMeal);
     setSearchMeal("");
+    
 
   };
 

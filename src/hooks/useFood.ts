@@ -81,6 +81,7 @@ export type singleFoodCathegory = z.infer<typeof singleFoodCathegory>;
 export default function useFood() {
 
   const addFoodCathegory = useFoodStore(state =>state.addFoodCathegory)
+  const addSingleFoodCathegory = useFoodStore(state => state.addSingleFoodCathegory)
 
   const fetchFoodCathegories = async () => {
 
@@ -116,7 +117,10 @@ export default function useFood() {
 
     const data = await response.json()
     const result = singleFoodCathegory.safeParse(data)
-    console.log(result.data?.meals) 
+    
+    if (result.success) {
+      addSingleFoodCathegory(result.data)
+    }
 
   }
 

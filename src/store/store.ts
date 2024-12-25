@@ -1,25 +1,28 @@
 import { create } from "zustand";
 import { devtools } from "zustand/middleware";
 import { FoodCategories } from "../types/types";
+import { singleFoodCathegory } from "../hooks/useFood";
 
 type FoodState = {
   foodCathegory: FoodCategories[];
+  singleFoodCathegory: singleFoodCathegory[];
   modal: boolean;
-  imgUrl : string;
-  foodDescription : string;
-  showModalInfo: (url: string, description: string) => void;
-  hideModal : () => void;
-  clearState : () => void;
+  imgUrl: string;
   addFoodCathegory: (data: FoodCategories) => void;
+  addSingleFoodCathegory: (cathegory: singleFoodCathegory) => void;
+  foodDescription: string;
+  showModalInfo: (url: string, description: string) => void;
+  hideModal: () => void;
+  clearState: () => void;
 };
 
 export const useFoodStore = create<FoodState>()(
   devtools((set) => ({
-
     foodCathegory: [],
+    singleFoodCathegory: [],
     modal: false,
-    foodDescription : '',
-    imgUrl: '',
+    foodDescription: "",
+    imgUrl: "",
 
     addFoodCathegory: (data) => {
       set(() => ({
@@ -27,27 +30,31 @@ export const useFoodStore = create<FoodState>()(
       }));
     },
 
+    addSingleFoodCathegory: (cathegory) => {
+      set(() => ({
+        singleFoodCathegory: [cathegory]
+      }));
+    },
 
     showModalInfo: (url, description) => {
       set(() => ({
         modal: true,
         foodDescription: description,
-        imgUrl: url
+        imgUrl: url,
       }));
     },
 
-    hideModal : () => { 
+    hideModal: () => {
       set(() => ({
         modal: false,
       }));
     },
 
-    clearState : () => {
+    clearState: () => {
       set(() => ({
-        foodDescription : '',
-        imgUrl: '',
+        foodDescription: "",
+        imgUrl: "",
       }));
-    }
-
+    },
   }))
 );
