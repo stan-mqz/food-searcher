@@ -35,7 +35,7 @@ export const FoodModal = () => {
 
             >
               <Dialog.Panel className="max-w-2xl space-y-3 bg-white rounded-lg p-12 shadow-custom">
-                <DialogTitle className="text-center font-bold">Food Description</DialogTitle>
+                <DialogTitle className="text-center font-bold">Cathegory Description</DialogTitle>
                 <Description className="flex justify-center">
                   <img src={`${imgUrl}`} alt="food background image" />
                 </Description>

@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import useFood from "./hooks/useFood";
 import { useFoodStore } from "./store/store";
-import { FoodCard } from "./components/FoodCard";
+import { FoodCard } from "./components/FoodCathegoryCard";
 import { FoodModal } from "./components/FoodModal";
 import { NavBar } from "./components/NavBar";
 
