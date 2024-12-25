@@ -7,21 +7,12 @@ import { NavBar } from "./components/NavBar";
 
 function App() {
 
-  const {fetchFood} = useFood();
+  const {fetchFoodCathegories} = useFood();
   const foodCathegory = useFoodStore(state => state.foodCathegory)
-  const foodCathegories = foodCathegory.map(cathegory => {
-    return cathegory.categories.map(cat => cat.strCategory)
-  })
-
-  console.log(foodCathegory)
-  console.log(foodCathegories)
-
-  
-
 
 
   useEffect(() => {
-    fetchFood()
+    fetchFoodCathegories()
   }, [])
 
   return (
