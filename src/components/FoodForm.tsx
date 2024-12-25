@@ -3,17 +3,15 @@ import useFood from "../hooks/useFood";
 import { ToastContainer, toast } from "react-toastify";
 
 export const FoodForm = () => {
+
   const { fetchSingleCathegory } = useFood();
   const [searchMeal, setSearchMeal] = useState("");
-  const [alert, setAlert] = useState("");
+  const alert = "You must fill search field"
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    setAlert("");
-
     if (searchMeal === "") {
-      setAlert("You must fill search field");
       toast.error(alert)
       return;
     }
@@ -30,6 +28,7 @@ export const FoodForm = () => {
         type="text"
         placeholder="Search Food"
         onChange={(e) => setSearchMeal(e.target.value)}
+        value={searchMeal}
       />
       <input
         className="border-white border text-white p-2 rounded-md cursor-pointer w-24"
