@@ -28,7 +28,7 @@ function App() {
   return (
     <>
       <h1 className="text-center text-4xl font-bold mt-6">
-        Food Recipe Plaza 🍔
+        Food Recipe Plaza 
       </h1>
 
       <div className="flex justify-center gap-5 mt-8">
@@ -36,7 +36,7 @@ function App() {
         <SelectFood />
       </div>
 
-      <div className="grid grid-cols-4 max-w-[90%] place-content-between gap-2 mx-auto mt-10 p-2 ">
+      <div className="grid grid-cols-4 max-w-[90%] place-content-between gap-2 mx-auto mt-10 p-2  ">
       {foodCathegory.map((cathegory) => {
         return cathegory.categories.map((category) => (
           <FoodCard
