@@ -5,12 +5,13 @@ import {
     DialogTitle,
 } from "@headlessui/react";
 
-
 import { useFoodStore } from "../store/store";
+
+
 
 export const FoodModal = () => {
 
-    const {modal, hideModal} = useFoodStore()
+    const {modal, imgUrl, hideModal} = useFoodStore()
 
   return (
     <>
@@ -21,9 +22,9 @@ export const FoodModal = () => {
       >
         <div className="fixed inset-0 flex w-screen items-center justify-center p-4">
           <DialogPanel className="max-w-lg space-y-4 border bg-white p-12">
-            <DialogTitle className="font-bold">Deactivate account</DialogTitle>
+            <DialogTitle className="font-bold">Food Description</DialogTitle>
             <Description>
-              This will permanently deactivate your account
+              <img src={`${imgUrl}`} alt="food background image" />
             </Description>
             <p>
               Are you sure you want to deactivate your account? All of your data

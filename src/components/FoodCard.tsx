@@ -17,7 +17,7 @@ export const FoodCard = ({cathegoryName, bgImage }: FoodCardProps) => {
         <img 
         src={`${bgImage}`} 
         alt="Food BackGround Image"
-        onClick={showModal} 
+        onClick={() => showModal(bgImage)}
         />
 
       </div>
@@ -25,6 +25,7 @@ export const FoodCard = ({cathegoryName, bgImage }: FoodCardProps) => {
       <p className="text-center font-bold stroke-black text-stroke-2">
         {cathegoryName}
       </p>
+
     </div>
   );
 };
