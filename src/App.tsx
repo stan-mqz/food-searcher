@@ -42,6 +42,7 @@ function App() {
           <FoodCard
           key={category.idCategory}
           cathegoryName={category.strCategory}
+          foodDescription={category.strCategoryDescription}
           bgImage={category.strCategoryThumb}
           />
         ));

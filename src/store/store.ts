@@ -5,8 +5,9 @@ import { FoodCategories } from "../types/types";
 type FoodState = {
   foodCathegory: FoodCategories[];
   modal: boolean;
-  imgUrl : string
-  showModal: (url: string) => void;
+  imgUrl : string;
+  foodDescription : string;
+  showModalInfo: (url: string, description: string) => void;
   hideModal : () => void;
   addFoodCathegory: (data: FoodCategories) => void;
 };
@@ -16,6 +17,7 @@ export const useFoodStore = create<FoodState>()(
 
     foodCathegory: [],
     modal: false,
+    foodDescription : '',
     imgUrl: '',
 
     addFoodCathegory: (data) => {
@@ -23,9 +25,10 @@ export const useFoodStore = create<FoodState>()(
         foodCathegory: [data],
       }));
     },
-    showModal: (url) => {
+    showModalInfo: (url, description) => {
       set(() => ({
         modal: true,
+        foodDescription: description,
         imgUrl: url
       }));
     },
@@ -33,6 +36,7 @@ export const useFoodStore = create<FoodState>()(
     hideModal : () => {
       set(() => ({
         modal: false,
+        foodDescription : '',
         imgUrl: ''
       }));
     },
