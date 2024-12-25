@@ -4,6 +4,7 @@ import { SelectFood } from "./components/SelectFood";
 import useFood from "./hooks/useFood";
 import { useFoodStore } from "./store/store";
 import { FoodCard } from "./components/FoodCard";
+import { FoodModal } from "./components/FoodModal";
 
 function App() {
 
@@ -29,13 +30,19 @@ function App() {
       {foodCathegory.map((cathegory) => {
         return cathegory.categories.map((category) => (
           <FoodCard
+          key={category.idCategory}
           cathegoryName={category.strCategory}
           bgImage={category.strCategoryThumb}
           />
         ));
       })}
+
+      <FoodModal 
+      
+      />
       </div>
-    </>
+
+      </>
   );
 }
 

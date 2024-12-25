@@ -3,17 +3,37 @@ import { devtools } from "zustand/middleware";
 import { FoodCategories } from "../types/types";
 
 type FoodState = {
-  foodCathegory: FoodCategories[]; 
-  addFoodCathegory: (data: FoodCategories) => void; 
+  foodCathegory: FoodCategories[];
+  modal: boolean;
+  showModal: () => void;
+  hideModal : () => void;
+  addFoodCathegory: (data: FoodCategories) => void;
 };
 
 export const useFoodStore = create<FoodState>()(
   devtools((set) => ({
-    foodCathegory: [], 
+
+    foodCathegory: [],
     addFoodCathegory: (data) => {
       set(() => ({
-        foodCathegory: [data]
+        foodCathegory: [data],
       }));
     },
+
+    modal: false,
+
+    showModal: () => {
+      set(() => ({
+        modal: true,
+      }));
+    },
+
+    hideModal : () => {
+      set(() => ({
+        modal: false
+      }));
+    }
+
+    
   }))
 );
