@@ -7,7 +7,7 @@ export const FoodForm = () => {
         placeholder="Search Food"
       />
       <input
-        className="bg-sky-400 text-white p-2 rounded-md cursor-pointer w-24"
+        className="bg-orange-500 text-white p-2 rounded-md cursor-pointer w-24"
         type="submit"
         value="Search"
       />
