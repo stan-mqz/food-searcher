@@ -116,7 +116,7 @@ export default function useFood() {
 
     const data = await response.json()
     const result = singleFoodCathegory.safeParse(data)
-    console.log(result) 
+    console.log(result.data?.meals) 
 
   }
 

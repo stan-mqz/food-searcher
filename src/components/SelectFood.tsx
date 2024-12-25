@@ -1,6 +1,7 @@
 import { useFoodStore } from "../store/store";
 
 export const SelectFood = () => {
+  
   const foodCathegory = useFoodStore((state) => state.foodCathegory);
 
   return (
