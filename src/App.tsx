@@ -24,13 +24,13 @@ function App() {
           <div className="flex justify-end w-full">
             {" "}
             <button
-              className="bg-blue-950 text-white font-bold rounded-md mt-10 mr-5 border-white border p-2 w-28"
+              className="bg-orange-600 text-white font-bold rounded-md mt-10 mr-5 border-white border p-2 w-28"
               onClick={clearState}
             >
               Clear Search
             </button>
           </div>
-          <div className="grid grid-cols-3 gap-2 mx-auto mt-10 p-2">
+          <div className="grid grid-cols-3 gap-2 p-7 mt-10">
             {singleFoodCathegory?.meals?.map((meal) => (
               <SingleCathegoryCard
                 key={meal.idMeal}
@@ -47,11 +47,11 @@ function App() {
         </>
       ) : (
         <>
-          <h2 className="text-3xl font-bold text-center mt-5">
+          <h2 className="text-orange-900 text-3xl font-bold text-center mt-5">
             Food Cathegories
           </h2>
 
-          <div className="grid grid-cols-4 max-w-[90%] place-content-between gap-2 mx-auto mt-10 p-2">
+          <div className="grid grid-cols-4 max-w-[90%] place-content-between gap-2 mx-auto mt-10 p-5">
             {foodCathegory?.categories?.map((category) => (
               <FoodCard
                 key={category.idCategory}

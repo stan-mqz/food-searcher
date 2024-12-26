@@ -20,10 +20,10 @@ export const FoodCard = ({
       </div>
 
       <div className="p-2 space-y-2">
-        <p className="text-center bg-gray-100 font-bold">{cathegoryName}</p>
+        <p className="text-center text-orange-900 bg-gray-100 font-bold">{cathegoryName}</p>
 
         <button
-          className="bg-blue-950 text-white p-2 font-bold w-full"
+          className="bg-orange-600 text-white p-2 font-bold w-full"
           onClick={() => showModalInfo(bgImage, foodDescription)}
         >
           See Description

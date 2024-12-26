@@ -21,10 +21,10 @@ export const SingleCathegoryCard = ({
 
   return (
     <>
-      <div className="space-y-2 mt-4 w-[95%] rounded-lg border-gray-200 border-4 shadow-lg p-2">
-        <div className="flex flex-wrap justify-between">
+      <div className="space-y-2 rounded-lg border-gray-200 border-4 shadow-lg p-2">
+        <div className="flex  justify-between">
         <h3 className="font-bold text-lg">{`${mealName}`}</h3>
-        <h3 className="font-bold text-lg text-blue-950">{`${mealCategory}`}</h3>
+        <h3 className="font-bold text-lg text-orange-900">{`${mealCategory}`}</h3>
 
         </div>
 
