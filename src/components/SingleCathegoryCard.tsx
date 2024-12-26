@@ -17,9 +17,7 @@ export const SingleCathegoryCard = ({
   mealArea,
   mealYtVideo,
 }: SingleCathegoryCardProps) => {
-  const filteredIngredients = mealIngredients.filter(
-    (ingredient) => ingredient !== "" && ingredient !== null
-  );
+ 
 
   return (
     <>
@@ -43,7 +41,7 @@ export const SingleCathegoryCard = ({
           <p className="font-bold">Ingredients</p>
 
           <ul className="flex flex-wrap gap-2 mt-2">
-            {filteredIngredients.map((ingredient, index) => (
+            {mealIngredients.map((ingredient, index) => (
               <li key={index} className="bg-gray-100 p-1 rounded-lg">
                 {ingredient}
               </li>

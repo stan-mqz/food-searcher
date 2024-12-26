@@ -5,6 +5,7 @@ import { NavBar } from "./components/NavBar";
 import { useFoodStore } from "./store/store";
 import { FoodCard } from "./components/FoodCathegoryCard";
 import { SingleCathegoryCard } from "./components/SingleCathegoryCard";
+import { getIngredients } from "./helpers/helpers";
 
 function App() {
   const { fetchFoodCathegories } = useFood();
@@ -27,28 +28,7 @@ function App() {
             mealName={meal.strMeal}
             mealImage={meal.strMealThumb}
             mealInstructions={meal.strInstructions}
-            mealIngredients={[
-              meal.strIngredient1,
-              meal.strIngredient2,
-              meal.strIngredient3,
-              meal.strIngredient4,
-              meal.strIngredient5,
-              meal.strIngredient6,
-              meal.strIngredient7,
-              meal.strIngredient8,
-              meal.strIngredient9,
-              meal.strIngredient10,
-              meal.strIngredient11,
-              meal.strIngredient12,
-              meal.strIngredient13,
-              meal.strIngredient14,
-              meal.strIngredient15,
-              meal.strIngredient16,
-              meal.strIngredient17,
-              meal.strIngredient18,
-              meal.strIngredient19,
-              meal.strIngredient20,
-            ]}
+            mealIngredients={getIngredients(meal)}
             mealCategory={meal.strCategory}
             mealArea={meal.strArea}
             mealYtVideo={meal.strYoutube}
