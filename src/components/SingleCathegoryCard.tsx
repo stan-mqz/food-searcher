@@ -17,15 +17,16 @@ export const SingleCathegoryCard = ({
   mealArea,
   mealYtVideo,
 }: SingleCathegoryCardProps) => {
- 
+  let a = [mealInstructions, mealArea, mealYtVideo];
+
+  console.log(a);
 
   return (
     <>
-      <div className="space-y-2 rounded-lg border-gray-200 border-4 shadow-lg p-2">
+      <div className="space-y-2 rounded-lg border-gray-200 border-4 shadow-lg p-2 transition-transform duration-200 hover:scale-105 cursor-pointer">
         <div className="flex  justify-between">
-        <h3 className="font-bold text-lg">{`${mealName}`}</h3>
-        <h3 className="font-bold text-lg text-orange-900">{`${mealCategory}`}</h3>
-
+          <h3 className="font-bold text-lg">{`${mealName}`}</h3>
+          <h3 className="font-bold text-lg text-orange-900">{`${mealCategory}`}</h3>
         </div>
 
         <div className="w-full h-60">
@@ -37,7 +38,6 @@ export const SingleCathegoryCard = ({
         </div>
 
         <div>
-
           <p className="font-bold">Ingredients</p>
 
           <ul className="flex flex-wrap gap-2 mt-2">
@@ -47,7 +47,6 @@ export const SingleCathegoryCard = ({
               </li>
             ))}
           </ul>
-
         </div>
       </div>
     </>
