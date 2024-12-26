@@ -10,13 +10,13 @@ export const SelectFood = () => {
       id="cathegory"
       className="rounded-md w-32 p-2"
     >
-      {foodCathegory.map((cathegory) => {
+      {/* {foodCathegory.map((cathegory) => {
         return cathegory.categories.map((category) => (
           <option key={category.idCategory} value={category.idCategory}>
             {category.strCategory}
           </option>
         ));
-      })}
+      })} */}
     </select>
   );
 };

@@ -4,8 +4,8 @@ import { FoodCategories } from "../types/types";
 import { singleFoodCathegory } from "../hooks/useFood";
 
 type FoodState = {
-  foodCathegory: FoodCategories[];
-  singleFoodCathegory: singleFoodCathegory[];
+  foodCathegory: FoodCategories;
+  singleFoodCathegory: singleFoodCathegory;
   modal: boolean;
   imgUrl: string;
   foodDescription: string;
@@ -18,21 +18,21 @@ type FoodState = {
 
 export const useFoodStore = create<FoodState>()(
   devtools((set) => ({
-    foodCathegory: [],
-    singleFoodCathegory: [],
+    foodCathegory: {},
+    singleFoodCathegory: {},
     modal: false,
     foodDescription: "",
     imgUrl: "",
 
     addFoodCathegory: (data) => {
       set(() => ({
-        foodCathegory: [data],
+        foodCathegory: data,
       }));
     },
 
     addSingleFoodCathegory: (cathegory) => {
       set(() => ({
-        singleFoodCathegory: [cathegory]
+        singleFoodCathegory: cathegory
       }));
     },
 
@@ -54,7 +54,9 @@ export const useFoodStore = create<FoodState>()(
       set(() => ({
         foodDescription: "",
         imgUrl: "",
-        singleFoodCathegory: []
+        singleFoodCathegory: {
+          meals: []
+        },
       }));
     },
   }))
