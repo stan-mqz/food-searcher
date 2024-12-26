@@ -90,11 +90,9 @@ export default function useFood() {
 
       const data = await response.json();
       const result = singleFoodCathegory.safeParse(data);
-      console.log(result)
 
       if (result.success) {
         addSingleFoodCathegory(result.data);
-        console.log(result.data)
       } else {
         console.log(result)
         console.log('Not Found')
