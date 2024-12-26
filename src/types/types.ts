@@ -11,7 +11,7 @@ export type SingleFoodCathegory = {
   meals: {
     idMeal: string,
           strMeal: string,
-          strMealThumb: string | null,
+          strMealThumb: string,
           strInstructions: string,
           strIngredient1: string | null,
           strIngredient2: string | null,

@@ -3,6 +3,7 @@ import { Fragment } from "react";
 import { useFoodStore } from "../store/store";
 
 export const FoodModal = () => {
+  
   const { modal, foodDescription, imgUrl, hideModal, clearState } = useFoodStore();
 
   return (

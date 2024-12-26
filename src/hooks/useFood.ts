@@ -17,7 +17,7 @@ const singleFoodCathegory = z.object({
     z.object({
       idMeal: z.string(),
       strMeal: z.string(),
-      strMealThumb: z.string().nullable(),
+      strMealThumb: z.string(),
       strInstructions: z.string().nullable(),
       strIngredient1: z.string().nullable(),
       strIngredient2: z.string().nullable(),
@@ -43,22 +43,19 @@ const singleFoodCathegory = z.object({
       strArea: z.string(),
       strYoutube: z.string().nullable(),
     })
-  )
-})
+  ),
+});
 
 export type allFoodCathegories = z.infer<typeof allFoodCathegories>;
 export type singleFoodCathegory = z.infer<typeof singleFoodCathegory>;
 
-
-
-
 export default function useFood() {
-
-  const addFoodCathegory = useFoodStore(state =>state.addFoodCathegory)
-  const addSingleFoodCathegory = useFoodStore(state => state.addSingleFoodCathegory)
+  const addFoodCathegory = useFoodStore((state) => state.addFoodCathegory);
+  const addSingleFoodCathegory = useFoodStore(
+    (state) => state.addSingleFoodCathegory
+  );
 
   const fetchFoodCathegories = async () => {
-
     const URL = "https://www.themealdb.com/api/json/v1/1/categories.php";
 
     try {
@@ -80,26 +77,34 @@ export default function useFood() {
     }
   };
 
-  const fetchSingleCathegory = async (meal: string) => {
+  const fetchSingleCathegoryCard = async (meal: string) => {
 
-    const URL = `https://www.themealdb.com/api/json/v1/1/search.php?s=${meal}`
-    const response = await fetch(URL)
+    const URL = `https://www.themealdb.com/api/json/v1/1/search.php?s=${meal}`;
 
-    if (!response.ok) {
-      throw new Error(`El error es: ${response.status}`);
+    try {
+      const response = await fetch(URL);
+
+      if (!response.ok) {
+        throw new Error(`El error es: ${response.status}`);
+      }
+
+      const data = await response.json();
+      const result = singleFoodCathegory.safeParse(data);
+
+      if (result.success) {
+        addSingleFoodCathegory(result.data);
+      } else {
+        console.log(result)
+        console.log('Not Found')
+      }
+
+    } catch (error) {
+      console.log(error)
     }
-
-    const data = await response.json()
-    const result = singleFoodCathegory.safeParse(data)
-    
-    if (result.success) {
-      addSingleFoodCathegory(result.data)
-    }
-
-  }
+  };
 
   return {
     fetchFoodCathegories,
-    fetchSingleCathegory
+    fetchSingleCathegoryCard,
   };
 }

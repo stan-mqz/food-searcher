@@ -8,9 +8,9 @@ type FoodState = {
   singleFoodCathegory: singleFoodCathegory[];
   modal: boolean;
   imgUrl: string;
+  foodDescription: string;
   addFoodCathegory: (data: FoodCategories) => void;
   addSingleFoodCathegory: (cathegory: singleFoodCathegory) => void;
-  foodDescription: string;
   showModalInfo: (url: string, description: string) => void;
   hideModal: () => void;
   clearState: () => void;
@@ -54,6 +54,7 @@ export const useFoodStore = create<FoodState>()(
       set(() => ({
         foodDescription: "",
         imgUrl: "",
+        singleFoodCathegory: []
       }));
     },
   }))
