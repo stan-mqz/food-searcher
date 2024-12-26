@@ -9,7 +9,7 @@ import { getIngredients } from "./helpers/helpers";
 
 function App() {
   const { fetchFoodCathegories } = useFood();
-  const { foodCathegory, singleFoodCathegory, clearState } = useFoodStore();
+  const { foodCathegory, singleFoodCathegory } = useFoodStore();
 
   useEffect(() => {
     fetchFoodCathegories();
@@ -20,31 +20,20 @@ function App() {
       <NavBar />
 
       {singleFoodCathegory?.meals?.length > 0 ? (
-        <>
-          <div className="flex justify-end w-full">
-            {" "}
-            <button
-              className="bg-orange-600 text-white font-bold rounded-md mt-10 mr-5 border-white border p-2 w-28"
-              onClick={clearState}
-            >
-              Clear Search
-            </button>
-          </div>
-          <div className="grid grid-cols-3 gap-2 p-7 mt-10">
-            {singleFoodCathegory?.meals?.map((meal) => (
-              <SingleCathegoryCard
-                key={meal.idMeal}
-                mealName={meal.strMeal}
-                mealImage={meal.strMealThumb}
-                mealInstructions={meal.strInstructions}
-                mealIngredients={getIngredients(meal)}
-                mealCategory={meal.strCategory}
-                mealArea={meal.strArea}
-                mealYtVideo={meal.strYoutube}
-              />
-            ))}
-          </div>
-        </>
+        <div className="grid grid-cols-3 gap-2 p-7 mt-10">
+          {singleFoodCathegory?.meals?.map((meal) => (
+            <SingleCathegoryCard
+              key={meal.idMeal}
+              mealName={meal.strMeal}
+              mealImage={meal.strMealThumb}
+              mealInstructions={meal.strInstructions}
+              mealIngredients={getIngredients(meal)}
+              mealCategory={meal.strCategory}
+              mealArea={meal.strArea}
+              mealYtVideo={meal.strYoutube}
+            />
+          ))}
+        </div>
       ) : (
         <>
           <h2 className="text-orange-900 text-3xl font-bold text-center mt-5">
