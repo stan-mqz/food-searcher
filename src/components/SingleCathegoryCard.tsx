@@ -1,11 +1,13 @@
+import { useFoodStore } from "../store/store";
+
 type SingleCathegoryCardProps = {
   mealName: string;
   mealImage: string;
-  mealInstructions: string | null;
+  mealInstructions: string;
   mealIngredients: (string | null)[];
   mealCategory: string;
   mealArea: string;
-  mealYtVideo: string | null;
+  mealYtVideo: string;
 };
 
 export const SingleCathegoryCard = ({
@@ -19,9 +21,13 @@ export const SingleCathegoryCard = ({
 }: SingleCathegoryCardProps) => {
 
 
+  const showModalInfo = useFoodStore(state => state.showModalInfo)
+
   return (
     <>
-      <div className="space-y-2 rounded-lg border-gray-200 border-4 shadow-lg p-2 transition-transform duration-200 hover:scale-105 cursor-pointer">
+      <div className="space-y-2 rounded-lg border-gray-200 border-4 shadow-lg p-2 transition-transform duration-200 hover:scale-105 cursor-pointer"
+      onClick={() => showModalInfo(mealInstructions, undefined, mealYtVideo)}
+      >
         <div className="flex justify-between">
           <h3 className="font-bold text-lg">{`${mealName}`}</h3>
           <h3 className="font-bold text-lg text-orange-900">{`${mealCategory}`}</h3>

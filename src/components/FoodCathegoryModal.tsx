@@ -1,10 +1,14 @@
-import { Description, Dialog, DialogTitle, Transition } from "@headlessui/react";
+import {
+  Description,
+  Dialog,
+  DialogTitle,
+  Transition,
+} from "@headlessui/react";
 import { Fragment } from "react";
 import { useFoodStore } from "../store/store";
 
 export const FoodModal = () => {
-  
-  const { modal, foodDescription, imgUrl, hideModal, clearState } = useFoodStore();
+  const { modal, modalInfo, hideModal } = useFoodStore();
 
   return (
     <>
@@ -18,7 +22,6 @@ export const FoodModal = () => {
             leave="ease-in duration-200"
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
-            afterLeave={clearState}
           >
             <div className="fixed inset-0 bg-black bg-opacity-75" />
           </Transition.Child>
@@ -32,17 +35,33 @@ export const FoodModal = () => {
               leave="ease-in duration-200"
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
-              afterLeave={clearState}
-
             >
               <Dialog.Panel className="max-w-2xl space-y-3 bg-white rounded-lg p-12 shadow-custom">
-                <DialogTitle className="text-center font-bold">Cathegory Description</DialogTitle>
-                <Description className="flex justify-center">
-                  <img src={`${imgUrl}`} alt="food background image" />
-                </Description>
+                <DialogTitle className="text-center font-bold">
+                  {modalInfo.img ? (
+                    <p>Cathegory Description</p>
+                  ) : (
+                    <p>Instructions</p>
+                  )}
+                </DialogTitle>
+
+                {modalInfo.img && (
+                  <Description className="flex justify-center">
+                    <img src={`${modalInfo.img}`} alt="food background image" />
+                  </Description>
+                )}
+
                 <div className="">
-                  <Description>{`${foodDescription}`}</Description>
+                  <Description>{`${modalInfo.text}`}</Description>
                 </div>
+
+                {modalInfo.url && (
+                  <a href={`${modalInfo.url}`} target="blank">
+                    <button className="bg-orange-600 text-white p-2 font-bold w-full mt-4">
+                      Watch Youtube Tutorial
+                    </button>
+                  </a>
+                )}
               </Dialog.Panel>
             </Transition.Child>
           </div>

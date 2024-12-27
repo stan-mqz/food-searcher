@@ -14,7 +14,7 @@ export type SingleFoodCategory = {
     strMeal: string;
     strMealThumb: string;
     strArea: string;
-    strInstructions: string | null;
+    strInstructions: string;
     strIngredient1: string | null;
     strIngredient2: string | null;
     strIngredient3: string | null;
@@ -41,7 +41,7 @@ export type SingleFoodCategory = {
 
 
 export type ModalInfo = {
-  img?: string,
-  text: string,
-  url?: string,
+  img?: string | null,
+  text: string | null ,
+  url?: string | null ,
 }

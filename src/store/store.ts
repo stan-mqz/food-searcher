@@ -1,16 +1,17 @@
 import { create } from "zustand";
 import { devtools } from "zustand/middleware";
-import { FoodCategories, SingleFoodCategory } from "../types/types";
+import { FoodCategories, ModalInfo, SingleFoodCategory } from "../types/types";
+
+
 
 type FoodState = {
   foodCathegory: FoodCategories;
   singleFoodCathegory: SingleFoodCategory;
   modal: boolean;
-  imgUrl: string;
-  foodDescription: string;
+  modalInfo: ModalInfo;
   addFoodCathegory: (data: FoodCategories) => void;
   addSingleFoodCathegory: (cathegory: SingleFoodCategory) => void;
-  showModalInfo: (url: string, description: string) => void;
+  showModalInfo: (text: string | null, img?: string , url?: string | null) => void;
   hideModal: () => void;
   clearState: () => void;
 };
@@ -20,6 +21,13 @@ export const useFoodStore = create<FoodState>()(
     foodCathegory: {},
     singleFoodCathegory: {},
     modal: false,
+    modalInfo : {
+      img: '',
+      text: '',
+      url: '',
+
+    },
+
     foodDescription: "",
     imgUrl: "",
 
@@ -36,11 +44,14 @@ export const useFoodStore = create<FoodState>()(
       }));
     },
 
-    showModalInfo: (url, description) => {
+    showModalInfo: (text = null, img = undefined, url = undefined) => {
       set(() => ({
         modal: true,
-        foodDescription: description,
-        imgUrl: url,
+        modalInfo: {
+          img,
+          text,
+          url,
+        },
       }));
     },
 
@@ -52,12 +63,11 @@ export const useFoodStore = create<FoodState>()(
 
     clearState: () => {
       set(() => ({
-        foodDescription: "",
-        imgUrl: "",
         singleFoodCathegory: {
           meals: []
         },
       }));
+
     },
   }))
 );
