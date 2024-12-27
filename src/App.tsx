@@ -40,7 +40,7 @@ function App() {
             Food Cathegories
           </h2>
 
-          <div className="grid grid-cols-4 max-w-[90%] place-content-between gap-2 mx-auto mt-10 p-5">
+          <div className="grid w-[90%] mx-auto mt-10 gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             {foodCathegory?.categories?.map((category) => (
               <FoodCard
                 key={category.idCategory}

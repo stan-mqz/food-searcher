@@ -15,7 +15,7 @@ export const FoodCard = ({
 
   return (
     <div
-      className="space-y-2 w-72 rounded-lg border-gray-200 border-2 shadow-lg transition-transform duration-200 hover:scale-105 cursor-pointer"
+      className="space-y-2 rounded-lg border-gray-200 border-2 shadow-lg transition-transform duration-200 hover:scale-105 cursor-pointer"
       onClick={() => showModalInfo(foodDescription, false, bgImage, undefined, cathegoryName)}
     >
       <div className="flex flex-col bg-orange-300 justify-center h-72">
