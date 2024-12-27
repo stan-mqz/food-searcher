@@ -18,7 +18,7 @@ export const FoodCard = ({
       className="space-y-2 w-72 rounded-lg border-gray-200 border-2 shadow-lg transition-transform duration-200 hover:scale-105 cursor-pointer"
       onClick={() => showModalInfo(bgImage, foodDescription)}
     >
-      <div className="flex flex-col justify-center h-72 p-2">
+      <div className="flex flex-col bg-orange-300 justify-center h-72">
         <img
           src={`${bgImage}`}
           alt="Food BackGround Image"
