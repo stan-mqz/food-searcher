@@ -11,12 +11,13 @@ export const FoodCard = ({
   foodDescription,
   bgImage,
 }: FoodCardProps) => {
+  
   const showModalInfo = useFoodStore((state) => state.showModalInfo);
 
   return (
     <div
       className="space-y-2 rounded-lg border-gray-200 border-2 shadow-lg transition-transform duration-200 hover:scale-105 cursor-pointer"
-      onClick={() => showModalInfo(foodDescription, false, bgImage, undefined, cathegoryName)}
+      onClick={() => showModalInfo(foodDescription, bgImage, undefined, cathegoryName)}
     >
       <div className="flex flex-col bg-orange-300 justify-center h-72">
         <img

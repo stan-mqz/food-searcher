@@ -54,10 +54,12 @@ export default function useFood() {
   const addSingleFoodCathegory = useFoodStore(
     (state) => state.addSingleFoodCathegory
   );
+  const setNotFound = useFoodStore(state => state.setNotFound);
+  const notFoundMessage = "Not Found";
+
 
   const fetchFoodCathegories = async () => {
     const URL = "https://www.themealdb.com/api/json/v1/1/categories.php";
-
     try {
       const response = await fetch(URL);
 
@@ -72,13 +74,13 @@ export default function useFood() {
         addFoodCathegory(result.data);
       }
     } catch (error) {
-      console.error(error);
       throw error;
     }
   };
 
-  const fetchSingleCathegoryCard = async (meal: string | undefined) => {
-
+  const fetchSingleFoodCathegory = async (meal: string | undefined) => {
+    
+    setNotFound(false)
     const URL = `https://www.themealdb.com/api/json/v1/1/search.php?s=${meal}`;
 
     try {
@@ -91,22 +93,24 @@ export default function useFood() {
       const data = await response.json();
       const result = singleFoodCathegory.safeParse(data);
 
-      if (result.success) {
-        console.log(result)
-        console.log(result.data)
-        addSingleFoodCathegory(result.data);
-      } else {
-        console.log(result)
-        console.log('Not Found')
+  
+      if (result.error) {
+        setNotFound(true)
       }
 
+      if (result.success) {
+        addSingleFoodCathegory(result.data);
+        setNotFound(false)
+      } 
+
     } catch (error) {
-      console.log(error)
+      throw error;
     }
   };
 
   return {
+    notFoundMessage,
     fetchFoodCathegories,
-    fetchSingleCathegoryCard,
+    fetchSingleFoodCathegory,
   };
 }

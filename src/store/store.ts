@@ -9,11 +9,11 @@ type FoodState = {
   singleFoodCathegory: SingleFoodCategory;
   modal: boolean;
   modalInfo: ModalInfo;
+  notFound: boolean
   addFoodCathegory: (data: FoodCategories) => void;
   addSingleFoodCathegory: (cathegory: SingleFoodCategory) => void;
   showModalInfo: (
-    text: string | null,
-    singleFoodCall: boolean, 
+    text: string,
     img?: string , 
     url?: string | null,
     cathegory?: string
@@ -21,6 +21,7 @@ type FoodState = {
   ) => void;
   hideModal: () => void;
   clearState: () => void;
+  setNotFound: (res: boolean) => void
 };
 
 export const useFoodStore = create<FoodState>()(
@@ -30,14 +31,13 @@ export const useFoodStore = create<FoodState>()(
     modal: false,
     modalInfo : {
       text: '',
-      singleFoodCall: false,
       img: '',
       url: '',
       cathegory: ''
 
     },
-    foodDescription: "",
-    imgUrl: "",
+
+    notFound: false,
 
     addFoodCathegory: (data) => {
       set(() => ({
@@ -52,12 +52,11 @@ export const useFoodStore = create<FoodState>()(
       }));
     },
 
-    showModalInfo: (text = null, singleFoodCall , img = undefined, url = undefined, cathegory = undefined) => {
+    showModalInfo: (text, img = undefined, url = undefined, cathegory = undefined) => {
       set(() => ({
         modal: true,
         modalInfo: {
           text,
-          singleFoodCall,
           img,
           url,
           cathegory
@@ -77,7 +76,14 @@ export const useFoodStore = create<FoodState>()(
           meals: []
         },
       }));
-
+ 
     },
+
+    setNotFound: (res: boolean) => {
+      set(() => ({
+        notFound: res
+      }));
+    }
+    
   }))
 );

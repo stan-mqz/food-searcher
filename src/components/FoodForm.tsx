@@ -4,7 +4,9 @@ import { ToastContainer, toast } from "react-toastify";
 
 export const FoodForm = () => {
 
-  const { fetchSingleCathegoryCard } = useFood();
+  
+  const { fetchSingleFoodCathegory } = useFood();
+
   const [searchMeal, setSearchMeal] = useState("");
   const alert = "You must fill search field"
 
@@ -16,7 +18,9 @@ export const FoodForm = () => {
       return;
     }
 
-    fetchSingleCathegoryCard(searchMeal);
+
+
+    fetchSingleFoodCathegory(searchMeal);
     setSearchMeal("");
     
 

@@ -6,21 +6,29 @@ import { useFoodStore } from "./store/store";
 import { FoodCard } from "./components/FoodCathegoryCard";
 import { SingleCathegoryCard } from "./components/SingleCathegoryCard";
 import { getIngredients } from "./helpers/helpers";
+import { NotFound } from "./components/NotFound";
 
 function App() {
-  const { fetchFoodCathegories } = useFood();
-  const { foodCathegory, singleFoodCathegory } = useFoodStore();
+
+  const { fetchFoodCathegories} = useFood();
+  const { foodCathegory, singleFoodCathegory, notFound} = useFoodStore();
 
   useEffect(() => {
     fetchFoodCathegories();
   }, []);
 
+
+
   return (
     <>
       <NavBar />
 
+   
+   {notFound && <NotFound />}
+
+
       {singleFoodCathegory?.meals?.length > 0 ? (
-        <div className="grid grid-cols-3 gap-2 p-7 mt-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 p-7 mt-10">
           {singleFoodCathegory?.meals?.map((meal) => (
             <SingleCathegoryCard
               key={meal.idMeal}

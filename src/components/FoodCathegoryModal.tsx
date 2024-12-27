@@ -9,13 +9,29 @@ import { useFoodStore } from "../store/store";
 import useFood from "../hooks/useFood";
 
 export const FoodModal = () => {
-  const { fetchSingleCathegoryCard } = useFood();
+  const { fetchSingleFoodCathegory } = useFood();
   const { modal, modalInfo, hideModal } = useFoodStore();
+
+
+  const handleModalClose = () => {
+    document.body.classList.remove("overflow-hidden");
+    hideModal();
+  };
+
+  const handleModalOpen = () => {
+    document.body.classList.add("overflow-hidden");
+  };
 
   return (
     <>
-      <Transition appear show={modal} as={Fragment}>
-        <Dialog as="div" className="relative z-50" onClose={hideModal}>
+      <Transition
+        appear
+        show={modal}
+        as={Fragment}
+        beforeEnter={handleModalOpen}
+        beforeLeave={handleModalClose}
+      >
+        <Dialog as="div" className="relative z-50" onClose={handleModalClose}>
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -38,7 +54,12 @@ export const FoodModal = () => {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <Dialog.Panel className="max-w-2xl space-y-3 bg-white rounded-lg p-12 shadow-custom">
+              <Dialog.Panel
+                className="max-w-2xl w-full space-y-3 bg-white rounded-lg p-8 shadow-custom overflow-y-auto"
+                style={{
+                  maxHeight: "90vh", 
+                }}
+              >
                 <DialogTitle className="text-center font-bold">
                   {modalInfo.img ? (
                     <p>Cathegory Description</p>
@@ -53,11 +74,11 @@ export const FoodModal = () => {
                   </Description>
                 )}
 
-                <div className="">
+                <div>
                   <Description>{`${modalInfo.text}`}</Description>
                 </div>
 
-                {modalInfo.singleFoodCall ? (
+                {!modalInfo.img ? (
                   <a href={`${modalInfo.url}`} target="blank">
                     <button className="bg-orange-600 text-white p-2 font-bold w-full mt-4">
                       Watch Youtube Tutorial
@@ -67,11 +88,11 @@ export const FoodModal = () => {
                   <button
                     className="bg-orange-600 text-white p-2 font-bold w-full mt-4"
                     onClick={() => {
-                      fetchSingleCathegoryCard(modalInfo.cathegory);
+                      fetchSingleFoodCathegory(modalInfo.cathegory);
                       hideModal();
                     }}
                   >
-                    Search Realted Meals
+                    Search Related Meals
                   </button>
                 )}
               </Dialog.Panel>
@@ -82,3 +103,4 @@ export const FoodModal = () => {
     </>
   );
 };
+

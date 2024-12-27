@@ -26,7 +26,7 @@ export const SingleCathegoryCard = ({
   return (
     <>
       <div className="space-y-2 rounded-lg border-gray-200 border-4 shadow-lg p-2 transition-transform duration-200 hover:scale-105 cursor-pointer"
-      onClick={() => showModalInfo(mealInstructions, true, undefined, mealYtVideo)}
+      onClick={() => showModalInfo(mealInstructions, undefined, mealYtVideo)}
       >
         <div className="flex justify-between">
           <h3 className="font-bold text-lg">{`${mealName}`}</h3>
