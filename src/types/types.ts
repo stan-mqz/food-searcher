@@ -38,3 +38,10 @@ export type SingleFoodCategory = {
     strYoutube: string | null;
   }[];
 };
+
+
+export type ModalInfo = {
+  img?: string,
+  text: string,
+  url?: string,
+}
