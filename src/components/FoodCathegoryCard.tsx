@@ -31,11 +31,6 @@ export const FoodCard = ({
           {cathegoryName}
         </p>
 
-        <button
-          className="bg-orange-600 text-white p-2 font-bold w-full"
-        >
-          See Description
-        </button>
       </div>
     </div>
   );
