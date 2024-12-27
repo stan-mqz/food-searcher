@@ -11,7 +11,14 @@ type FoodState = {
   modalInfo: ModalInfo;
   addFoodCathegory: (data: FoodCategories) => void;
   addSingleFoodCathegory: (cathegory: SingleFoodCategory) => void;
-  showModalInfo: (text: string | null, img?: string , url?: string | null) => void;
+  showModalInfo: (
+    text: string | null,
+    singleFoodCall: boolean, 
+    img?: string , 
+    url?: string | null,
+    cathegory?: string
+
+  ) => void;
   hideModal: () => void;
   clearState: () => void;
 };
@@ -22,12 +29,13 @@ export const useFoodStore = create<FoodState>()(
     singleFoodCathegory: {},
     modal: false,
     modalInfo : {
-      img: '',
       text: '',
+      singleFoodCall: false,
+      img: '',
       url: '',
+      cathegory: ''
 
     },
-
     foodDescription: "",
     imgUrl: "",
 
@@ -44,13 +52,15 @@ export const useFoodStore = create<FoodState>()(
       }));
     },
 
-    showModalInfo: (text = null, img = undefined, url = undefined) => {
+    showModalInfo: (text = null, singleFoodCall , img = undefined, url = undefined, cathegory = undefined) => {
       set(() => ({
         modal: true,
         modalInfo: {
-          img,
           text,
+          singleFoodCall,
+          img,
           url,
+          cathegory
         },
       }));
     },

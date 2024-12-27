@@ -6,8 +6,10 @@ import {
 } from "@headlessui/react";
 import { Fragment } from "react";
 import { useFoodStore } from "../store/store";
+import useFood from "../hooks/useFood";
 
 export const FoodModal = () => {
+  const { fetchSingleCathegoryCard } = useFood();
   const { modal, modalInfo, hideModal } = useFoodStore();
 
   return (
@@ -55,12 +57,22 @@ export const FoodModal = () => {
                   <Description>{`${modalInfo.text}`}</Description>
                 </div>
 
-                {modalInfo.url && (
+                {modalInfo.singleFoodCall ? (
                   <a href={`${modalInfo.url}`} target="blank">
                     <button className="bg-orange-600 text-white p-2 font-bold w-full mt-4">
                       Watch Youtube Tutorial
                     </button>
                   </a>
+                ) : (
+                  <button
+                    className="bg-orange-600 text-white p-2 font-bold w-full mt-4"
+                    onClick={() => {
+                      fetchSingleCathegoryCard(modalInfo.cathegory);
+                      hideModal();
+                    }}
+                  >
+                    Search Realted Meals
+                  </button>
                 )}
               </Dialog.Panel>
             </Transition.Child>

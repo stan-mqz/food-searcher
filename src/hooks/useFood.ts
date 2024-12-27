@@ -77,7 +77,7 @@ export default function useFood() {
     }
   };
 
-  const fetchSingleCathegoryCard = async (meal: string) => {
+  const fetchSingleCathegoryCard = async (meal: string | undefined) => {
 
     const URL = `https://www.themealdb.com/api/json/v1/1/search.php?s=${meal}`;
 

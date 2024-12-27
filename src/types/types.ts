@@ -41,7 +41,9 @@ export type SingleFoodCategory = {
 
 
 export type ModalInfo = {
-  img?: string | null,
   text: string | null ,
+  singleFoodCall? : boolean , 
+  img?: string | null,
   url?: string | null ,
+  cathegory?: string,
 }
