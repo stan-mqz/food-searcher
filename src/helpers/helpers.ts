@@ -1,6 +1,6 @@
-import { singleFoodCathegory } from "../hooks/useFood";
+import { SingleFoodCategory } from "../types/types";
 
-export const getIngredients = (meal: singleFoodCathegory['meals'][0]): string[] => {
+export const getIngredients = (meal: SingleFoodCategory['meals'][0]): string[] => {
    
     const ingredients: string[] = [];
     

@@ -1,16 +1,15 @@
 import { create } from "zustand";
 import { devtools } from "zustand/middleware";
-import { FoodCategories } from "../types/types";
-import { singleFoodCathegory } from "../hooks/useFood";
+import { FoodCategories, SingleFoodCategory } from "../types/types";
 
 type FoodState = {
   foodCathegory: FoodCategories;
-  singleFoodCathegory: singleFoodCathegory;
+  singleFoodCathegory: SingleFoodCategory;
   modal: boolean;
   imgUrl: string;
   foodDescription: string;
   addFoodCathegory: (data: FoodCategories) => void;
-  addSingleFoodCathegory: (cathegory: singleFoodCathegory) => void;
+  addSingleFoodCathegory: (cathegory: SingleFoodCategory) => void;
   showModalInfo: (url: string, description: string) => void;
   hideModal: () => void;
   clearState: () => void;
@@ -29,6 +28,7 @@ export const useFoodStore = create<FoodState>()(
         foodCathegory: data,
       }));
     },
+
 
     addSingleFoodCathegory: (cathegory) => {
       set(() => ({

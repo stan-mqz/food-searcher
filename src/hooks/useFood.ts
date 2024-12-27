@@ -92,6 +92,8 @@ export default function useFood() {
       const result = singleFoodCathegory.safeParse(data);
 
       if (result.success) {
+        console.log(result)
+        console.log(result.data)
         addSingleFoodCathegory(result.data);
       } else {
         console.log(result)
