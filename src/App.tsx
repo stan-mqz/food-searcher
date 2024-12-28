@@ -24,7 +24,7 @@ function App() {
       <NavBar />
 
    
-   {notFound && <NotFound />}
+   {notFound && <NotFound >Not Found</NotFound>}
 
 
       {singleFoodCathegory?.meals?.length > 0 ? (
