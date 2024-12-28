@@ -1,50 +1,61 @@
-# React + TypeScript + Vite
+# Food Searcher
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[Live Demo](https://stan-mqz-food-searcher.netlify.app//)
 
-Currently, two official plugins are available:
+![image](https://github.com/user-attachments/assets/66a8da9f-8030-43e9-9fab-74d382885c2a)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**Food Searcher**  is a web application that allows users to search for food recipes and view detailed information about various food categories and individual meals. The application fetches data from the **TheMealDB** API and displays it in a user-friendly interface.
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- Search for food recipes by meal name
 
-- Configure the top-level `parserOptions` property like this:
+- View detailed information about food categories
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- View detailed information about individual meals, including ingredients and instructions
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+- Display a modal with additional information and YouTube tutorial links
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+- Responsive design for various screen sizes
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+## Technologies Used :
+
+- **React**: A JavaScript library for building user interfaces
+
+- **TypeScript**: A typed superset of JavaScript that compiles to plain JavaScript
+
+- **Vite**: A build tool that provides a fast development environment
+
+- **Tailwind CSS**: A utility-first CSS framework for rapid UI development
+
+- **Zustand**: A small, fast, and scalable state-management solution
+
+- **Zod** : A TypeScript-first schema declaration and validation library
+
+- **React Toastify** : A library for adding notifications to React applications
+
+- **Headless UI**: Unstyled, fully accessible UI components
+
+
+## Getting Started
+
+**Prerequisites**
+
+- **Node.js** (version 14 or higher)
+
+- **npm** (version 6 or higher)
+
+## Installation
+
+- **Clone the repository:**
+`git clone git@github.com:stan-mqz/food-searcher.git`
+
+- **Install dependencies:**
+`npm install`
+
+- **Running the Application**
+`npm run dev`
+
+
+
+---
