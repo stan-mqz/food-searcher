@@ -12,7 +12,6 @@ export const FoodModal = () => {
   const { fetchSingleFoodCathegory } = useFood();
   const { modal, modalInfo, hideModal } = useFoodStore();
 
-
   const handleModalClose = () => {
     document.body.classList.remove("overflow-hidden");
     hideModal();
@@ -57,11 +56,11 @@ export const FoodModal = () => {
               <Dialog.Panel
                 className="max-w-2xl w-full space-y-3 bg-white rounded-lg p-8 shadow-custom overflow-y-auto"
                 style={{
-                  maxHeight: "90vh", 
+                  maxHeight: "90vh",
                 }}
               >
                 <DialogTitle className="text-center font-bold">
-                  {modalInfo.img ? (
+                  {modalInfo.cathegory ? (
                     <p>Cathegory Description</p>
                   ) : (
                     <p>Instructions</p>
@@ -78,22 +77,24 @@ export const FoodModal = () => {
                   <Description>{`${modalInfo.text}`}</Description>
                 </div>
 
-                {!modalInfo.img ? (
+                {!modalInfo.cathegory && modalInfo.url ? (
                   <a href={`${modalInfo.url}`} target="blank">
                     <button className="bg-orange-600 text-white p-2 font-bold w-full mt-4">
                       Watch Youtube Tutorial
                     </button>
                   </a>
                 ) : (
-                  <button
-                    className="bg-orange-600 text-white p-2 font-bold w-full mt-4"
-                    onClick={() => {
-                      fetchSingleFoodCathegory(modalInfo.cathegory);
-                      hideModal();
-                    }}
-                  >
-                    Search Related Meals
-                  </button>
+                  modalInfo.img && (
+                    <button
+                      className="bg-orange-600 text-white p-2 font-bold w-full mt-4"
+                      onClick={() => {
+                        fetchSingleFoodCathegory(modalInfo.cathegory);
+                        hideModal();
+                      }}
+                    >
+                      Search Related Meals
+                    </button>
+                  )
                 )}
               </Dialog.Panel>
             </Transition.Child>
@@ -103,4 +104,3 @@ export const FoodModal = () => {
     </>
   );
 };
-
