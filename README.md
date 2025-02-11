@@ -48,7 +48,7 @@
 ## Installation
 
 - **Clone the repository:**
-`git clone git@github.com:stan-mqz/food-searcher.git`
+`git clone https://github.com/stan-mqz/food-searcher.git
 
 - **Install dependencies:**
 `npm install`
