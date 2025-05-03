@@ -2,7 +2,7 @@
 
 [Live Demo](https://stan-mqz-food-searcher.netlify.app/)
 
-![image](https://github.com/user-attachments/assets/66a8da9f-8030-43e9-9fab-74d382885c2a)
+![image](https://github.com/user-attachments/assets/59df0fdc-85a2-43b9-8381-a41151f22782)
 
 ---
 
