@@ -45,7 +45,7 @@ function App() {
       ) : (
         <>
           <h2 className="text-orange-900 text-3xl font-bold text-center mt-5">
-            Food Cathegories
+            Food Categories
           </h2>
 
           <div className="grid w-[90%] mx-auto mt-10 gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">

@@ -10,7 +10,7 @@ export const NavBar = () => {
       
       <h1 className="text-center text-4xl font-bold text-white cursor-pointer"
       onClick={clearState}
-      >Food Recipe Plaza</h1>
+      >Food Searcher</h1>
 
       <FoodForm />
     </nav>
